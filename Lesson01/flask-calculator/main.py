@@ -7,8 +7,8 @@ from model import SavedTotal
 
 app = Flask(__name__)
 # we need secret key for sessions
-app.secret_key = b'\x8a\x83\xaa\x82\xee\xb5\x1d&\xbf\xf8\xe9f\xf9\x90<\xad,^\x946\xe0W\xf9\xdf'
-
+# app.secret_key = b'\x8a\x83\xaa\x82\xee\xb5\x1d&\xbf\xf8\xe9f\xf9\x90<\xad,^\x946\xe0W\xf9\xdf'
+app.secret_key = os.environ.get('SECRET_KEY').encode()
 
 @app.route('/')
 def home():
